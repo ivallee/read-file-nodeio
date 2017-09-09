@@ -1,10 +1,14 @@
 var fs = require("fs");
+var filePath = process.argv[2];
 
-console.log('Going to delete a file');
+console.log('Going to read this file');
 
-var data = fs.writeFile('./tmp/nodeio3.txt', 'This is a new file in a new directory', function(error, data) {
-  if (error) {
-    throw error;
+fs.readFile(filePath, 'utf8', function(err, data) {
+  if (err) {
+    throw err;
   }
-  console.log('file deleted');
+  console.log(data);
 });
+
+
+console.log('Reading file complete');
